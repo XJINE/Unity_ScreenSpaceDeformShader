@@ -23,9 +23,9 @@ float4 ScreenSpaceDeform(float4 rawVertex)
     float4 originInClip = UnityObjectToClipPos(objectOrigin);
 
     // NOTE:
-    // If _GlobalScreenSpaceDeformTex is not set, tex2Dlod returns rgba = 1.
+    // If _GlobalScreenSpaceDeformTex is not set, tex2Dlod returns gray color.
 
-    clipPos.xy = deformPow.b == 1 ?
+    clipPos.xy = deformPow.b > 0 ?
                  clipPos.xy :
                  (clipPos.xy - originInClip.xy) * deformPow.xy + originInClip.xy;
 

@@ -1,7 +1,7 @@
 {
     "name"       : "com.xjine.screen_space_deform_shader",
     "displayName": "Screen Space Deform Shader", 
-    "version"    : "1.0.0",
+    "version"    : "1.1.0",
     "unity"      : "2022.3",
     "description": "Deform vertices in screen space by using a deform map.",
     "author"     :

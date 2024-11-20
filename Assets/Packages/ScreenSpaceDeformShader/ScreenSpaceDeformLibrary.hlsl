@@ -22,7 +22,12 @@ float4 ScreenSpaceDeform(float4 rawVertex)
     float4 objectOrigin = float4(0,0,0,1);
     float4 originInClip = UnityObjectToClipPos(objectOrigin);
 
-    clipPos.xy = (clipPos.xy - originInClip.xy) * deformPow.xy + originInClip.xy;
+    // NOTE:
+    // If _GlobalScreenSpaceDeformTex is not set, tex2Dlod returns rgba = 1.
+
+    clipPos.xy = deformPow.b == 1 ?
+                 clipPos.xy :
+                 (clipPos.xy - originInClip.xy) * deformPow.xy + originInClip.xy;
 
     return clipPos;
 }
